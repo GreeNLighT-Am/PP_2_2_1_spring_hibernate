@@ -2,34 +2,31 @@ package hiber.service;
 
 import hiber.dao.UserDao;
 import hiber.model.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserDao userDao;
 
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    @Transactional
     @Override
+    @Transactional
     public void add(User user) {
         userDao.add(user);
     }
 
-    @Transactional(readOnly = true)
     @Override
+    @Transactional(readOnly = true)
     public List<User> listUsers() {
         return userDao.listUsers();
     }
 
-    @Transactional(readOnly = true)
     @Override
+    @Transactional(readOnly = true)
     public List<User> listUsersByCar(String model, int series) {
         return userDao.listUsersByCar(model, series);
     }

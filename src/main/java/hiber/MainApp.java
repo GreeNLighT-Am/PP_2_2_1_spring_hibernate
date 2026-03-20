@@ -17,19 +17,53 @@ public class MainApp {
         UserService userService = context.getBean(UserService.class);
         CarService carService = context.getBean(CarService.class);
 
-        Car car1 = new Car("Corolla", 150);
-        Car car2 = new Car("Impreza", 90);
-        Car car3 = new Car("Lancer", 10);
-        Car car4 = new Car("Camry", 180);
+        Car car1 = Car.builder()
+                .model("Corolla")
+                .series(150)
+                .build();
+        Car car2 = Car.builder()
+                .model("Impreza")
+                .series(90)
+                .build();
+        Car car3 = Car.builder()
+                .model("Lancer")
+                .series(10)
+                .build();
+        Car car4 = Car.builder()
+                .model("Camry")
+                .series(180)
+                .build();
+
         carService.add(car1);
         carService.add(car2);
         carService.add(car3);
         carService.add(car4);
 
-        User user1 = new User("User1", "Lastname1", "user1@mail.ru");
-        User user2 = new User("User2", "Lastname2", "user2@mail.ru");
-        User user3 = new User("User3", "Lastname3", "user3@mail.ru");
-        User user4 = new User("User4", "Lastname4", "user4@mail.ru");
+        User user1 = User.builder()
+                .firstName("User1")
+                .lastName("Lastname1")
+                .email("user1@mail.ru")
+                .car(car1)
+                .build();
+        User user2 = User.builder()
+                .firstName("User2")
+                .lastName("Lastname2")
+                .email("user2@mail.ru")
+                .car(car2)
+                .build();
+        User user3 = User.builder()
+                .firstName("User3")
+                .lastName("Lastname3")
+                .email("user3@mail.ru")
+                .car(car3)
+                .build();
+        User user4 = User.builder()
+                .firstName("User4")
+                .lastName("Lastname4")
+                .email("user4@mail.ru")
+                .car(car4)
+                .build();
+
         user1.setCar(car1);
         user2.setCar(car2);
         user3.setCar(car3);

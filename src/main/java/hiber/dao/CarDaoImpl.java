@@ -1,16 +1,14 @@
 package hiber.dao;
 
 import hiber.model.Car;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class CarDaoImpl implements CarDao {
     private final SessionFactory sessionFactory;
-
-    public CarDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Override
     public void add(Car car) {
